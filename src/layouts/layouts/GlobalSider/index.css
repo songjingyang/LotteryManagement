@@ -1,0 +1,37 @@
+.logo {
+  height: 64px;
+  position: relative;
+  line-height: 64px;
+  transition: all 0.3s;
+  background: #002140;
+  overflow: hidden;
+  text-align: center; }
+  .logo .logo-img {
+    display: inline-block;
+    vertical-align: middle;
+    color: #fff;
+    font-size: 36px; }
+  .logo h1 {
+    color: white;
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 16px;
+    margin: 0 0 0 12px;
+    font-family: 'Myriad Pro', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+    font-weight: 600; }
+
+.icon {
+  width: 14px;
+  margin-right: 10px; }
+
+i.trigger {
+  font-size: 20px;
+  line-height: 64px;
+  cursor: pointer;
+  transition: all 0.3s, padding 0s;
+  padding: 0 24px; }
+  i.trigger:hover {
+    background: #e6f7ff; }
+
+.screen-xs .drawer-handle {
+  top: 11px; }

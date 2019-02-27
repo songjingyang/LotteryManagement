@@ -1,0 +1,45 @@
+@charset "UTF-8";
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif; }
+
+.flex {
+  display: flex; }
+
+.tableList .tableListOperator {
+  margin-bottom: 16px; }
+  .tableList .tableListOperator button {
+    margin-right: 8px; }
+
+.tableListForm .ant-form .ant-form-item {
+  height: 32px;
+  margin-bottom: 24px;
+  margin-right: 0;
+  display: flex; }
+  .tableListForm .ant-form .ant-form-item > .ant-form-item-label {
+    width: auto;
+    min-width: 100px;
+    line-height: 32px;
+    padding-right: 8px;
+    text-align: right; }
+  .tableListForm .ant-form .ant-form-item .ant-form-item-control {
+    line-height: 32px; }
+
+.tableListForm .ant-form .ant-form-item-control-wrapper {
+  flex: 1; }
+
+.tableListForm .submitButtons {
+  white-space: nowrap;
+  margin-bottom: 24px;
+  margin-left: 100px; }
+
+/* 移动端通用样式 */
+.screen-xs .ant-calendar-picker {
+  width: auto !important; }
+  .screen-xs .ant-calendar-picker .ant-calendar-picker-input {
+    font-size: 12px; }
+
+.screen-xs .tableListFormMobile .submitButtons {
+  white-space: nowrap;
+  margin-bottom: 24px; }

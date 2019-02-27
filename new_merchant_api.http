@@ -1,0 +1,486 @@
+//http://lg.lgames.net:88 为本地地址
+@test_url=http://lg.lgames.net:88
+
+//获取渠道列表
+POST {{test_url}}/index/channel/index.html HTTP/1.1
+content-type: application/json
+
+{
+  "nickname":1,        
+  "page": 1,
+  "pagesize": 20,
+  "ts": 1535097167
+}
+
+//返回值    添加  channel_group_name   渠道组名 字段    不归属渠道组的该字段为空     is_group   1:是渠道组,0:不是渠道组
+//{
+//    "code": 200,
+//    "msg": "渠道获取成功！",
+//    "payload": {
+//        "list": [
+//            {
+//                "merchant_id": {
+//                    "$oid": "5bac6d60421aa93725129e92"
+//                },
+//                "role_id": {
+//                    "$oid": "5c384c299dc6d6504018fb78"
+//                },
+//                "capital": "Q",
+//                "account": "qianduan",
+//                "pswd": "e10adc3949ba59abbe56e057f20f883e",
+//                "nickname": "前端专用",
+//                "real_name": "",
+//                "back_accounts": [],
+//                "share_rate": 0.7,
+//                "withdraw_tip_rate": 3,
+//                "withdraw_min": 5000,
+//                "banners": [],
+//                "avatar": "",
+//                "mobile": {
+//                    "code": "",
+//                    "numbers": ""
+//                },
+//                "email": "",
+//                "last_login": 1547193385189,
+//                "created": "2019-01-11 15:56:25",
+//                "updated": 1547431591692,
+//                "status": 2,
+//                "type": 1,
+//                "ident": 1,
+//                "add_apk_time": "2019-01-14 10:06:31",
+//                "apk_path": "/downapkpackage/lottery_5c384c299dc6d6504018fb79_test_0114.apk",
+//                "id": "5c384c299dc6d6504018fb79",
+//                "bili": "70:30",
+//                "user_total": 1,
+//                "best_gold": 0,
+//                "prize_win": 0,
+//                "pay_sum": 0,
+//                "profit_loss": "0.00",
+//                "created_es": "2019-01-11 15:56:25",
+//                "add_apk_time_es": "2019-01-14 10:06:31",
+//                "channel_group_name": ""
+//            },
+//            {
+//                "merchant_id": {
+//                    "$oid": "5bac6d60421aa93725129e92"
+//                },
+//                "role_id": {
+//                    "$oid": "5c38456d9dc6d6503d0881cc"
+//                },
+//                "capital": "G",
+//                "account": "test0111",
+//                "pswd": "e10adc3949ba59abbe56e057f20f883e",
+//                "nickname": "寡人的渠道",
+//                "real_name": "",
+//                "back_accounts": [],
+//                "share_rate": 0.85,
+//                "withdraw_tip_rate": 1,
+//                "withdraw_min": 1000,
+//                "banners": [
+//                    {
+//                        "name": "banner1",
+//                        "image_url": "http://223.203.221.79/api/upload/20190111155404795552.jpg",
+//                        "href": "//",
+//                        "order": 1,
+//                        "up_time": 1546329223000,
+//                        "down_time": 1556610834000,
+//                        "created": 1547193249884,
+//                        "updated": 1547193249884,
+//                        "status": 2
+//                    }
+//                ],
+//                "avatar": "",
+//                "mobile": {
+//                    "code": "",
+//                    "numbers": ""
+//                },
+//                "email": "",
+//                "last_login": 1548060811472,
+//                "created": "2019-01-11 15:27:41",
+//                "updated": 1548060811472,
+//                "status": 2,
+//                "type": 1,
+//                "ident": 1,
+//                "add_apk_time": "2019-01-14 10:06:31",
+//                "apk_path": "/downapkpackage/lottery_5c38456d9dc6d6503d0881cd_test_0114.apk",
+//                "id": "5c38456d9dc6d6503d0881cd",
+//                "bili": "85:15",
+//                "user_total": 2,
+//                "best_gold": 0,
+//                "prize_win": 21090,
+//                "pay_sum": 5112000,
+//                "profit_loss": "-17926.50",
+//                "created_es": "2019-01-11 15:27:41",
+//                "add_apk_time_es": "2019-01-14 10:06:31",
+//                "channel_group_name": ""
+//            },
+//            {
+//                "merchant_id": {
+//                    "$oid": "5bac6d60421aa93725129e92"
+//                },
+//                "role_id": {
+//                    "$oid": "5c3845439dc6d6354f44ac55"
+//                },
+//                "capital": "C",
+//                "account": "test",
+//                "pswd": "e10adc3949ba59abbe56e057f20f883e",
+//                "nickname": "测试专用",
+//                "real_name": "",
+//                "back_accounts": [
+//                    {
+//                        "bank": "旱涝保收\"行\"",
+//                        "name": "admin",
+//                        "card_id": "123414151515",
+//                        "is_def": 2,
+//                        "status": 2
+//                    }
+//                ],
+//                "share_rate": 0.8,
+//                "withdraw_tip_rate": 3,
+//                "withdraw_min": 100,
+//                "banners": [],
+//                "avatar": "",
+//                "mobile": {
+//                    "code": "",
+//                    "numbers": ""
+//                },
+//                "email": "",
+//                "last_login": 1548064081336,
+//                "created": "2019-01-11 15:26:59",
+//                "updated": 1548064081336,
+//                "status": 2,
+//                "type": 1,
+//                "ident": 1,
+//                "add_apk_time": "2019-01-14 10:06:32",
+//                "apk_path": "/downapkpackage/lottery_5c3845439dc6d6354f44ac56_test_0114.apk",
+//                "id": "5c3845439dc6d6354f44ac56",
+//                "bili": "80:20",
+//                "user_total": 1,
+//                "best_gold": 0,
+//                "prize_win": 16052,
+//                "pay_sum": 150200,
+//                "profit_loss": "-12841.60",
+//                "created_es": "2019-01-11 15:26:59",
+//                "add_apk_time_es": "2019-01-14 10:06:32",
+//                "channel_group_name": ""
+//            },
+//            {
+//                "merchant_id": {
+//                    "$oid": "5bac6d60421aa93725129e92"
+//                },
+//                "role_id": {
+//                    "$oid": "5c3844cd9dc6d6354f44ac46"
+//                },
+//                "capital": "D",
+//                "account": "大狗",
+//                "pswd": "698d51a19d8a121ce581499d7b701668",
+//                "nickname": "dev",
+//                "real_name": "",
+//                "back_accounts": [],
+//                "share_rate": 0.01,
+//                "withdraw_tip_rate": 3,
+//                "withdraw_min": 5000,
+//                "banners": [],
+//                "avatar": "",
+//                "mobile": {
+//                    "code": "",
+//                    "numbers": ""
+//                },
+//                "email": "",
+//                "last_login": 1547200217349,
+//                "created": "2019-01-11 15:25:01",
+//                "updated": 1547431592596,
+//                "status": 2,
+//                "type": 1,
+//                "ident": 1,
+//                "add_apk_time": "2019-01-14 10:06:32",
+//                "apk_path": "/downapkpackage/lottery_5c3844cd9dc6d6354f44ac47_test_0114.apk",
+//                "id": "5c3844cd9dc6d6354f44ac47",
+//                "bili": "1:99",
+//                "user_total": 0,
+//                "best_gold": 0,
+//                "prize_win": 0,
+//                "pay_sum": 0,
+//                "profit_loss": "0.00",
+//                "created_es": "2019-01-11 15:25:01",
+//                "add_apk_time_es": "2019-01-14 10:06:32",
+//                "channel_group_name": ""
+//            },
+//            {
+//                "merchant_id": {
+//                    "$oid": "5bac6d60421aa93725129e92"
+//                },
+//                "role_id": {
+//                    "$oid": "5c3844a99dc6d6504018fb66"
+//                },
+//                "capital": "D",
+//                "account": "二狗",
+//                "pswd": "202cb962ac59075b964b07152d234b70",
+//                "nickname": "dev1",
+//                "real_name": "",
+//                "back_accounts": [],
+//                "share_rate": 0.88,
+//                "withdraw_tip_rate": 3,
+//                "withdraw_min": 5000,
+//                "banners": [],
+//                "avatar": "",
+//                "mobile": {
+//                    "code": "",
+//                    "numbers": ""
+//                },
+//                "email": "",
+//                "last_login": 1547200361579,
+//                "created": "2019-01-11 15:24:25",
+//                "updated": 1547432934870,
+//                "status": 2,
+//                "type": 1,
+//                "ident": 1,
+//                "add_apk_time": "2019-01-14 10:06:33",
+//                "apk_path": "/downapkpackage/lottery_5c3844a99dc6d6504018fb67_test_0114.apk",
+//                "id": "5c3844a99dc6d6504018fb67",
+//                "bili": "88:12",
+//                "user_total": 2,
+//                "best_gold": 0,
+//                "prize_win": 0,
+//                "pay_sum": 0,
+//                "profit_loss": "0.00",
+//                "created_es": "2019-01-11 15:24:25",
+//                "add_apk_time_es": "2019-01-14 10:06:33",
+//                "channel_group_name": "",
+//                "is_group":0
+//            }
+//        ],
+//        "page": 1,
+//        "pageSize": 20,
+//        "total": 5,
+//        "ts": 123456789874561
+//    }
+//}
+
+//添加渠道    当  merchant_type  为  1 时   chan_divide与platform_divide 非必填；    merchant_ary与un_merchant_ary 为必填。不为一时相反操作！
+// {
+//   "nickname":"渠道名称",        
+//   "account": "渠道用户名",
+//   "pswd": "渠道密码",
+
+//    "merchant_type":1,
+
+//   "chan_divide": 80,
+//   "platform_divide":20,
+
+//   
+//   "merchant_ary":[],
+//   "un_merchant_ary":[]
+
+// }
+
+POST {{test_url}}/index/channel/add_channel.html HTTP/1.1
+content-type: application/json
+
+{
+  "nickname":"渠道名称",        
+  "account": "渠道用户名",
+  "pswd": "渠道密码",
+  "chan_divide": 80,
+  "platform_divide":20,
+
+  "merchant_type":1,
+  "merchant_ary":[],
+  "un_merchant_ary":[]
+
+}
+
+
+//查看渠道  {'id':要查询渠道ID}
+POST {{test_url}}/index/channel/get_channel.html HTTP/1.1
+content-type: application/json
+
+{
+  "id":"5b890f321b6b78338d8d7001"
+}
+
+//返回值
+//{
+//    "code": 200,
+//    "msg": "获取成功！",
+//    "payload": {
+//        "merchant_id": {
+//            "$oid": "5bac6d60421aa93725129e92"
+//        },
+//        "role_id": {
+//            "$oid": "5c3844a99dc6d6504018fb66"
+//        },
+//        "capital": "D",
+//        "account": "二狗",
+//        "pswd": "202cb962ac59075b964b07152d234b70",
+//        "nickname": "dev1",
+//        "real_name": "",
+//        "back_accounts": [],
+//        "share_rate": 0.88,
+//        "withdraw_tip_rate": 3,
+//        "withdraw_min": 50,
+//        "banners": [],
+//        "avatar": "",
+//        "mobile": {
+//            "code": "",
+//            "numbers": ""
+//        },
+//        "email": "",
+//        "last_login": 1547200361579,
+//        "created": 1547191465328,
+//        "updated": 1547432934870,
+//        "status": 2,
+//        "type": 1,
+//        "ident": 1,
+//        "add_apk_time": 1547431593342,
+//        "apk_path": "/downapkpackage/lottery_5c3844a99dc6d6504018fb67_test_0114.apk",
+//        "id": "5c3844a99dc6d6504018fb67",
+//        "channel": "88",
+//        "system": "12",
+//        "have_chosen": [],                                        //下属渠道
+//        "un_have_chosen": [                                       //非下属渠道
+//            {
+//                "id": "5c3844a99dc6d6504018fb67",
+//                "nickname": "dev1",
+//                "account": "二狗"
+//            },
+//            {
+//                "id": "5c3844cd9dc6d6354f44ac47",
+//                "nickname": "dev",
+//                "account": "大狗"
+//            },
+//            {
+//                "id": "5c3845439dc6d6354f44ac56",
+//                "nickname": "测试专用",
+//                "account": "test"
+//            },
+//            {
+//                "id": "5c38456d9dc6d6503d0881cd",
+//                "nickname": "寡人的渠道",
+//                "account": "test0111"
+//            },
+//            {
+//                "id": "5c3846d59dc6d6503e7a8540",
+//                "nickname": "接收迁移专用客服_dev1",
+//                "account": "qianyi二狗"
+//            },
+//            {
+//                "id": "5c3849fd9dc6d6503c1c9a46",
+//                "nickname": "客服小姐姐",
+//                "account": "kefu0111"
+//            },
+//            {
+//                "id": "5c384c299dc6d6504018fb79",
+//                "nickname": "前端专用",
+//                "account": "qianduan"
+//            },
+//            {
+//                "id": "5c384c809dc6d6503d0881dd",
+//                "nickname": "专属客服任",
+//                "account": "renzhigang"
+//            },
+//            {
+//                "id": "5c3852929dc6d6503e7a854b",
+//                "nickname": "接收迁移专用客服_寡人的渠道",
+//                "account": "qianyitest0111"
+//            },
+//            {
+//                "id": "5c38614c9dc6d6503d0881e8",
+//                "nickname": "接收迁移专用客服_测试专用",
+//                "account": "qianyitest"
+//            }
+//        ],
+//        "merchant_p_name": "",                                //渠道组名称
+//        "user_total": 2,                                      //用户数
+//        "pay_sum": 0,                                         //充值金额
+//        "profit_loss": "0.00",                    //盈亏
+//        "best_gold": 0,                           //下注金额
+//        "prize_win": 0,           //中奖金额
+//        "ke_fu_count": 0              //客服数量
+//    }
+//}
+
+
+###
+//查看渠道组  {'channel_id':要查询渠道ID}
+# 迁移
+POST {{test_url}}/index/channel/get_channel_ary.html HTTP/1.1
+content-type: application/json
+
+{
+  "id":"5b890f321b6b78338d8d7001"
+}
+
+
+//返回值
+//{
+//    "code": 200,
+//    "msg": "获取成功！",
+//    "payload": {
+//        "have_chosen": [],                    //渠道下属成员
+//        "un_have_chosen": [                   //非渠道下属成员
+//            {
+//                "id": "5c3844a99dc6d6504018fb67",
+//                "nickname": "dev1",
+//                "account": "二狗"
+//            },
+//            {
+//                "id": "5c3844cd9dc6d6354f44ac47",
+//                "nickname": "dev",
+//                "account": "大狗"
+//            },
+//            {
+//                "id": "5c3845439dc6d6354f44ac56",
+//                "nickname": "测试专用",
+//                "account": "test"
+//            },
+//            {
+//                "id": "5c38456d9dc6d6503d0881cd",
+//                "nickname": "寡人的渠道",
+//                "account": "test0111"
+//            },
+//            {
+//                "id": "5c3846d59dc6d6503e7a8540",
+//                "nickname": "接收迁移专用客服_dev1",
+//                "account": "qianyi二狗"
+//            },
+//            {
+//                "id": "5c3849fd9dc6d6503c1c9a46",
+//                "nickname": "客服小姐姐",
+//                "account": "kefu0111"
+//            },
+//            {
+//                "id": "5c384c299dc6d6504018fb79",
+//                "nickname": "前端专用",
+//                "account": "qianduan"
+//            },
+//            {
+//                "id": "5c384c809dc6d6503d0881dd",
+//                "nickname": "专属客服任",
+//                "account": "renzhigang"
+//            },
+//            {
+//                "id": "5c3852929dc6d6503e7a854b",
+//                "nickname": "接收迁移专用客服_寡人的渠道",
+//                "account": "qianyitest0111"
+//            },
+//            {
+//                "id": "5c38614c9dc6d6503d0881e8",
+//                "nickname": "接收迁移专用客服_测试专用",
+//                "account": "qianyitest"
+//            }
+//        ]
+//    }
+//}
+
+
+###
+//更改渠道组下的渠道所属  {'channel_id':要查询渠道ID}
+POST {{test_url}}/index/channel/eite_merchant_group.html HTTP/1.1
+content-type: application/json
+
+{
+  "id":"5b890f321b6b78338d8d7001",              //渠道ID
+  "merchant_ary":[],                            //下属成员
+  "un_merchant_ary":[]                          //非下属成员
+}

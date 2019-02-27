@@ -1,0 +1,136 @@
+//http://lg.lgames.net:88 为本地地址
+//http://223.203.221.79:8088 为测试服地址
+@test_url=http://lg.lgames.net:88
+
+//渠道列表 
+// {
+//   "page": 1,
+//   "pagesize": 20,
+//   "channel_id": "",                   //渠道ID，传此参数以后。在返回值列表中将不包含该渠道信息
+//   "nickname":""                       //搜索   渠道昵称
+// }
+POST {{test_url}}/index/Channeles/index HTTP/1.1
+
+//参数
+{
+  "page": 1,
+  "pagesize": 20,
+  "channel_id": "",
+  "nickname":""
+}
+
+
+//返回值
+//{
+//    "code": 200,
+//    "msg": "渠道获取成功！",
+//    "payload": {
+//        "list": [
+//            {
+//                "id": "5c3463389dc6d6354f44abf5",
+//                "nickname": "开发专属",
+//                "account": "动次打次"
+//            },
+//            {
+//                "id": "5c32f332d39e5901185dcc08",
+//                "nickname": "测试渠道彩票赔率",
+//                "account": "herenshan666"
+//            },
+//            {
+//                "id": "5c1b04539dc6d62d4641b1c2",
+//                "nickname": "开发调试",
+//                "account": "dev1220"
+//            },
+//            {
+//                "id": "5c1b037c9dc6d62d4461cfd8",
+//                "nickname": "姜立国",
+//                "account": "jiangliguo"
+//            },
+//            {
+//                "id": "5c1b03319dc6d634424bf4a5",
+//                "nickname": "专属测试",
+//                "account": "test1220"
+//            },
+//            {
+//                "id": "5c106e7e9dc6d634424bf458",
+//                "nickname": "秦东",
+//                "account": "herenshan112"
+//            }
+//        ],
+//        "page": 1,
+//        "pageSize": 20,
+//        "total": 6,
+//        "ts": 0
+//    }
+//}
+
+//渠道下的玩家
+//{
+
+//	"channel_id":"5c1b037c9dc6d62d4461cfd8"             渠道ID
+//}
+
+POST {{test_url}}/index/Channeles/get_player_list HTTP/1.1
+
+//参数
+{
+
+	"channel_id":"5c1b037c9dc6d62d4461cfd8"
+}
+
+//返回值
+// {
+//     "code": 200,
+//     "msg": "玩家获取成功！",
+//     "payload": {
+//         "list": [
+//             {
+//                 "id": "5c1b186de1382333fd99b30b",                                //玩家ID
+//                 "nickname": "",                                                  //玩家昵称
+//                 "extension_id": "5c1b037c9dc6d62d4461cfd8",                      //客服ID
+//                 "merchant_id": "5c1b037c9dc6d62d4461cfd8"                        //渠道ID
+//             },
+//             {
+//                 "id": "5c1b0e659dc6d62d4461cfe2",
+//                 "nickname": "qaq",
+//                 "extension_id": "",
+//                 "merchant_id": "5c1b037c9dc6d62d4461cfd8"
+//             },
+//             {
+//                 "id": "5c1b0965e1382310d52418df",
+//                 "nickname": "我的貂蝉在哪里",
+//                 "extension_id": "5c1b037c9dc6d62d4461cfd8",
+//                 "merchant_id": "5c1b037c9dc6d62d4461cfd8"
+//             }
+//         ],
+//         "merchant_id": {
+//             "$oid": "5c1b037c9dc6d62d4461cfd8"
+//         }
+//     }
+// }
+
+//迁移用户
+// {
+// 	"channel_id":"5c1b037c9dc6d62d4461cfd8",                                    //源渠道ID
+// 	"old_channel_id":"5c1b03319dc6d634424bf4a5",                                //目标渠道ID
+// 	"type":2,                                                                   //迁移类型   1：全部；2：自定义
+// 	"player_id":["5c1b186de1382333fd99b30b","5c1b0965e1382310d52418df"]         //自定义模式下选择的玩家ID，为必填选项；非自定义模式下该参数可不填，为非必填选项
+// }
+
+POST {{test_url}}/index/Channeles/transfer_player HTTP/1.1
+
+{
+	"channel_id":"5c1b037c9dc6d62d4461cfd8",
+	"old_channel_id":"5c1b03319dc6d634424bf4a5",
+	"type":2,
+	"player_id":["5c1b186de1382333fd99b30b","5c1b0965e1382310d52418df"]
+}
+
+
+
+//返回值
+// {
+//     "code": 200,
+//     "msg": "完成",
+//     "payload": []
+// }

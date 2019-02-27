@@ -1,0 +1,12 @@
+h3{
+  margin-left: 50px;
+  text-align: center;
+  margin-top: 40px;
+
+  
+}
+h3:nth-child(1){
+  font-weight: 900;
+  margin: 0;
+  text-align: left;
+}

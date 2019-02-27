@@ -1,0 +1,71 @@
+@test_url=http://223.203.221.79:8088
+//秦东
+
+### 彩票管理列表
+POST {{test_url}}/index/LotteryManager/lotteryList HTTP/1.1
+content-type: application/json
+
+{
+  "page": 1,
+  "pageSize": 20,
+  "total": 0,
+  "ts": 1535097167,
+  "name":"双色球"
+}
+
+### 彩票管理信息修改
+### status price content 必传一
+POST {{test_url}}/index/LotteryManager/lotteryItemUpdate HTTP/1.1
+content-type: application/json
+
+{
+  "id": 1, //彩票id
+  "status": 2,//修改彩票状态后的值
+  "price": 0,//修改彩票金额
+}
+
+### 彩票盈亏管理
+POST {{test_url}}/index/LotteryProfitManager/index HTTP/1.1
+content-type: application/json
+
+{
+
+  "page": 1,
+  "pageSize": 20,
+  "total": 0,
+  "ts": 1536904520,
+  "channelId":"" //渠道id
+  //"lotteryId":2,彩票id
+}
+  
+
+
+### 彩票购买管理
+POST {{test_url}}/index/LotteryBuyManager/index HTTP/1.1
+content-type: application/json
+
+{
+    "page": 1,
+    "pagesize": 20,
+    "total": 0,
+    "ts": 1535097167,
+    "type":1,  //1:购买人 2 所属渠道 3 订单号 4 期数
+    "content":"5b95ed2c1b6b7831afc75469",
+    "lottery_id":"5b95ed2c0e2ec0a3fff27db1"
+}
+
+### 彩票开奖管理
+POST {{test_url}}/index/LotteryPrizeManager/index HTTP/1.1
+content-type: application/json
+
+{
+	"page": 1,
+	"pagesize": 20,
+	"total": 0,
+	"ts": 1535097167,
+	"lotteryId":"5b95ed2c0e2ec0a3fff27db1",
+	"strTime":1536129620000,
+	"endTime":1537129620000,
+	"player_id":"",
+	"channelId":""
+}

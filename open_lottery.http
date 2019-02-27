@@ -1,0 +1,274 @@
+//http://lg.lgames.net:88 为本地地址
+//http://223.203.221.79:8088 为测试服地址
+@test_url=http://lg.lgames.net:88
+
+//数据统计 
+// {
+//   "page": 1）,
+//   "pagesize": 20,
+//   "lottery_id": "彩票ID（必填）",
+//   "type":"搜索类型（非必填）",
+//   "strTime":"起始时间"（非必填）,
+//   "endTime":"结束时间（非必填）"
+// }
+POST {{test_url}}/index/OpenLottery/index HTTP/1.1
+
+//参数
+{
+  "page": 1,
+  "pagesize": 20,
+  "lottery_id": "",
+  "strTime":"",
+  "endTime":""
+}
+
+//返回值
+// {
+//     "code": 200,
+//     "msg": "数据统计获取成功！",
+//     "payload": {
+//         "list": [
+//             {
+//                 "_id": "5c21f9018ffaed93a84f5d12",
+//                 "lottery_id": "5c08e44ff2aa3dc9d132b14f",
+//                 "lottery_name": "重庆时时彩",
+//                 "num": [],
+//                 "admin_user_id": "",
+//                 "period": 181224120,
+//                 "created": 1545730305000,
+//                 "created_es": "2018-12-25 17:31:45",
+//                 "updated": 1545730305000,
+//                 "updated_es": "2018-12-25 17:31:45",
+//                 "staus": 1,
+//                 "type": 3
+//             }
+//         ],
+//         "page": 1,
+//         "pageSize": 20,
+//         "total": 0
+//     }
+// }
+
+//时时彩系列
+// {
+// 	"id":["5c22fc388ffaed9cb038ae32","5c22febff2aa3dc9d1796a65"],           //开奖ID
+// 	"type":0,   开奖类型（0：自动；1：手动）
+// 	"quick_three_num":[5,5,5]   开奖号码
+// }
+
+POST {{test_url}}/index/OpenLottery/open_lottery_quick_three HTTP/1.1
+
+//参数
+{
+	"id":["5c22fc388ffaed9cb038ae32","5c22febff2aa3dc9d1796a65"],
+	"type":0,
+	"quick_three_num":[5,5,5]
+}
+
+//返回值
+// {
+//     "code": 200,
+//     "msg": "快三系列开奖完成！",
+//     "payload": [
+//         5,
+//         [
+//             {
+//                 "period": 119,
+//                 "period_str": 181225119,
+//                 "numbers": [
+//                     6,
+//                     4,
+//                     7
+//                 ],
+//                 "ordered": "4,6,7",
+//                 "sum": 17,
+//                 "form": "三不同",
+//                 "src_type": 2,
+//                 "stake_countdown_sec": 0,
+//                 "draw_countdown_sec": 0
+//             },
+//             {
+//                 "period": 120,
+//                 "period_str": 181225120,
+//                 "numbers": [
+//                     7,
+//                     5,
+//                     9
+//                 ],
+//                 "ordered": "5,7,9",
+//                 "sum": 21,
+//                 "form": "三不同",
+//                 "src_type": 2,
+//                 "stake_countdown_sec": 0,
+//                 "draw_countdown_sec": 0
+//             }
+//         ]
+//     ]
+// }
+
+
+
+
+
+
+//时时彩系列
+// {
+// 	"id":["5c22fc388ffaed9cb038ae32","5c22febff2aa3dc9d1796a65"],           //开奖ID
+// 	"type":0,   开奖类型（0：自动；1：手动）
+// 	"quick_three_num":[9,6,5,5,5]   开奖号码
+// }
+
+POST {{test_url}}/index/OpenLottery/open_lottery_time_honored HTTP/1.1
+
+//参数
+{
+	"id":["5c22fc388ffaed9cb038ae32","5c22febff2aa3dc9d1796a65"],
+	"type":0,
+	"quick_three_num":[9,6,5,5,5]
+}
+
+
+//返回值
+// {
+//     "code": 200,
+//     "msg": "时时彩开奖系列",
+//     "payload": [
+//         4,
+//         [
+//             {
+//                 "period": 119,
+//                 "period_str": 181225119,
+//                 "numbers": [
+//                     8,
+//                     7,
+//                     0,
+//                     3,
+//                     0
+//                 ],
+//                 "ordered": "0,0,3,7,8",
+//                 "tens": "小单",
+//                 "units": "小双",
+//                 "last_three_form": "组三",
+//                 "last_two_form": "",
+//                 "src_type": 2,
+//                 "stake_countdown_sec": 0,
+//                 "draw_countdown_sec": 0
+//             },
+//             {
+//                 "period": 120,
+//                 "period_str": 181225120,
+//                 "numbers": [
+//                     5,
+//                     0,
+//                     8,
+//                     6,
+//                     9
+//                 ],
+//                 "ordered": "0,5,6,8,9",
+//                 "tens": "大双",
+//                 "units": "大单",
+//                 "last_three_form": "组六",
+//                 "last_two_form": "",
+//                 "src_type": 2,
+//                 "stake_countdown_sec": 0,
+//                 "draw_countdown_sec": 0
+//             }
+//         ]
+//     ]
+// }
+
+
+
+//11选5系列
+// {
+// 	"id":["5c22fc388ffaed9cb038ae32","5c22febff2aa3dc9d1796a65"],           //开奖ID
+// 	"type":0,   开奖类型（0：自动；1：手动）
+// 	"quick_three_num":[9,6,5,5,5]   开奖号码
+// }
+
+POST {{test_url}}/index/OpenLottery/open_lottery_eleven_choose_five HTTP/1.1
+
+//参数
+{
+	"id":["5c22fc388ffaed9cb038ae32","5c22febff2aa3dc9d1796a65"],
+	"type":0,
+	"quick_three_num":[9,6,5,5,5]
+}
+
+
+//返回值
+// {
+//     "code": 200,
+//     "msg": "十一选五开奖系列",
+//     "payload": [
+//         6,
+//         [
+//             {
+//                 "period": 119,
+//                 "period_str": 181225119,
+//                 "numbers": [
+//                     10,
+//                     3,
+//                     6,
+//                     4,
+//                     7
+//                 ],
+//                 "ordered": "3,4,6,7,10",
+//                 "odds": [
+//                     4,
+//                     6,
+//                     10
+//                 ],
+//                 "evens": [
+//                     3,
+//                     7
+//                 ],
+//                 "bigs": [
+//                     6,
+//                     7,
+//                     10
+//                 ],
+//                 "smalls": [
+//                     3,
+//                     4
+//                 ],
+//                 "src_type": 2,
+//                 "stake_countdown_sec": 0,
+//                 "draw_countdown_sec": 0
+//             },
+//             {
+//                 "period": 120,
+//                 "period_str": 181225120,
+//                 "numbers": [
+//                     10,
+//                     7,
+//                     2,
+//                     8,
+//                     3
+//                 ],
+//                 "ordered": "2,3,7,8,10",
+//                 "odds": [
+//                     2,
+//                     8,
+//                     10
+//                 ],
+//                 "evens": [
+//                     3,
+//                     7
+//                 ],
+//                 "bigs": [
+//                     7,
+//                     8,
+//                     10
+//                 ],
+//                 "smalls": [
+//                     2,
+//                     3
+//                 ],
+//                 "src_type": 2,
+//                 "stake_countdown_sec": 0,
+//                 "draw_countdown_sec": 0
+//             }
+//         ]
+//     ]
+// }
